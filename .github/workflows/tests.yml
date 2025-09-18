@@ -50,5 +50,8 @@ jobs:
       - name: Build Assets
         run: npm run build
 
+      - name: Make DB file
+        run: touch ./database/database.sqlite
+
       - name: Run Tests
         run: ./vendor/bin/pest
