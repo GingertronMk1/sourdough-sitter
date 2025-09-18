@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('doughs', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->string('name')->nullable()->index();
+            $table->unsignedInteger('months_old')->nullable()->index();
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
