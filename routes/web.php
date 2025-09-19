@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DoughController;
+use App\Http\Controllers\DoughSittingController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -17,6 +19,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
     Volt::route('settings/password', 'settings.password')->name('password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
+
+    Route::resources([
+        'dough' => DoughController::class,
+        'dough.sitting' => DoughSittingController::class,
+    ]);
 });
 
 require __DIR__.'/auth.php';

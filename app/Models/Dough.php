@@ -16,6 +16,10 @@ class Dough extends Model
     use SoftDeletes;
     use HasUuids;
 
+    protected $with = [
+        'user',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

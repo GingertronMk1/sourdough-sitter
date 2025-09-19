@@ -20,6 +20,10 @@ class Sitting extends Model
         'end_date' => 'date',
     ];
 
+    protected $with = [
+        'dough',
+    ];
+
     public function dough(): BelongsTo
     {
         return $this->belongsTo(Dough::class);
