@@ -12,8 +12,9 @@ class Sitting extends Model
 {
     /** @use HasFactory<\Database\Factories\SittingFactory> */
     use HasFactory;
-    use SoftDeletes;
+
     use HasUuids;
+    use SoftDeletes;
 
     protected $casts = [
         'start_date' => 'date',

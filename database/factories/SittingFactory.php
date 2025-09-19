@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\FeedIntervalEnum;
 use App\FlourAmountUnitEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 use function fake;
 
 /**
@@ -21,6 +22,7 @@ class SittingFactory extends Factory
     {
         $startDate = now()->addDays(fake()->numberBetween(1, 30));
         $endDate = $startDate->addDays(fake()->numberBetween(1, 30));
+
         return [
             'feed_frequency_number' => fake()->numberBetween(1, 5),
             'feed_frequency_interval' => fake()->randomElement(FeedIntervalEnum::cases()),

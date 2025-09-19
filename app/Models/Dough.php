@@ -13,8 +13,9 @@ class Dough extends Model
 {
     /** @use HasFactory<\Database\Factories\DoughFactory> */
     use HasFactory;
-    use SoftDeletes;
+
     use HasUuids;
+    use SoftDeletes;
 
     protected $with = [
         'user',
