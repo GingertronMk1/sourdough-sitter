@@ -13,7 +13,7 @@ class DoughController extends Controller
      */
     public function index()
     {
-        //
+        return view('livewire.dough.index', ['doughs' => Dough::all()]);
     }
 
     /**

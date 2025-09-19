@@ -15,14 +15,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        if (app()->isLocal()) {
+            User::factory()->create([
+                'name' => 'Admin',
+                'email' => 'admin@soursit.test',
+                'password' => bcrypt(12345)
+            ]);
+        }
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
-        User::factory(50)->has(Dough::factory(3)->has(Sitting::factory(5)))->create();
+        User::factory(50)
+            ->has(
+                Dough::factory(3)
+                    ->has(
+                        Sitting::factory(5)
+                    )
+            )
+            ->create();
 
     }
 }
