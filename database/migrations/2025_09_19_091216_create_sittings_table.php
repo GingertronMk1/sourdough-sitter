@@ -26,6 +26,7 @@ return new class extends Migration
             $table->text('additional_instructions')->nullable();
             $table->date('start_date');
             $table->date('end_date');
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
