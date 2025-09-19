@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('feed_frequency_interval');
             $table->float('flour_amount_number');
             $table->string('flour_amount_unit');
-            $table->text('flour_type')->nullable()->fulltext();
+            $table->text('flour_type')->nullable();
             $table->float('water_amount_number');
             $table->string('water_amount_unit');
             $table->text('additional_instructions')->nullable();
