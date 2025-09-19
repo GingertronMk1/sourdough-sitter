@@ -2,29 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDoughRequest;
-use App\Http\Requests\UpdateDoughRequest;
 use App\Models\Dough;
+use App\Models\Sitting;
+use Illuminate\Http\Request;
 
-class DoughController extends Controller
+class DoughSittingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Dough $dough)
     {
-        return view(
-            'livewire.dough.index',
-            [
-                'doughs' => Dough::all()->load('nextSitting')
-            ]
-        );
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Dough $dough)
     {
         //
     }
@@ -32,7 +27,7 @@ class DoughController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDoughRequest $request)
+    public function store(Request $request, Dough $dough)
     {
         //
     }
@@ -40,12 +35,13 @@ class DoughController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dough $dough)
+    public function show(Dough $dough, Sitting $sitting)
     {
         return view(
-            'livewire.dough.show',
+            'livewire.dough.sitting.show',
             [
-                'dough' => $dough->load('sittings')
+                'dough' => $dough,
+                'sitting' => $sitting,
             ]
         );
     }
@@ -53,7 +49,7 @@ class DoughController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dough $dough)
+    public function edit(Dough $dough, Sitting $sitting)
     {
         //
     }
@@ -61,7 +57,7 @@ class DoughController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDoughRequest $request, Dough $dough)
+    public function update(Request $request, Dough $dough, Sitting $sitting)
     {
         //
     }
@@ -69,7 +65,7 @@ class DoughController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dough $dough)
+    public function destroy(Dough $dough, Sitting $sitting)
     {
         //
     }

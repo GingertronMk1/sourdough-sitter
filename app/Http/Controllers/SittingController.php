@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDoughRequest;
-use App\Http\Requests\UpdateDoughRequest;
-use App\Models\Dough;
+use App\Http\Requests\StoreSittingRequest;
+use App\Http\Requests\UpdateSittingRequest;
+use App\Models\Sitting;
 
-class DoughController extends Controller
+class SittingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view(
-            'livewire.dough.index',
-            [
-                'doughs' => Dough::all()->load('nextSitting')
-            ]
-        );
+        //
     }
 
     /**
@@ -32,7 +27,7 @@ class DoughController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDoughRequest $request)
+    public function store(StoreSittingRequest $request)
     {
         //
     }
@@ -40,20 +35,15 @@ class DoughController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dough $dough)
+    public function show(Sitting $sitting)
     {
-        return view(
-            'livewire.dough.show',
-            [
-                'dough' => $dough->load('sittings')
-            ]
-        );
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dough $dough)
+    public function edit(Sitting $sitting)
     {
         //
     }
@@ -61,7 +51,7 @@ class DoughController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDoughRequest $request, Dough $dough)
+    public function update(UpdateSittingRequest $request, Sitting $sitting)
     {
         //
     }
@@ -69,7 +59,7 @@ class DoughController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dough $dough)
+    public function destroy(Sitting $sitting)
     {
         //
     }
