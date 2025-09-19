@@ -1,17 +1,17 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Policies;
 
+use App\Models\Dough;
+use App\Models\User;
 use Illuminate\Auth\Access\Response;
-use {{ namespacedModel }};
-use {{ namespacedUserModel }};
 
-class {{ class }}
+class DoughPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny({{ user }} $user): bool
+    public function viewAny(User $user): bool
     {
         return true;
     }
@@ -19,7 +19,7 @@ class {{ class }}
     /**
      * Determine whether the user can view the model.
      */
-    public function view({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
+    public function view(User $user, Dough $dough): bool
     {
         return true;
     }
@@ -27,7 +27,7 @@ class {{ class }}
     /**
      * Determine whether the user can create models.
      */
-    public function create({{ user }} $user): bool
+    public function create(User $user): bool
     {
         return true;
     }
@@ -35,7 +35,7 @@ class {{ class }}
     /**
      * Determine whether the user can update the model.
      */
-    public function update({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
+    public function update(User $user, Dough $dough): bool
     {
         return true;
     }
@@ -43,7 +43,7 @@ class {{ class }}
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
+    public function delete(User $user, Dough $dough): bool
     {
         return true;
     }
@@ -51,7 +51,7 @@ class {{ class }}
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
+    public function restore(User $user, Dough $dough): bool
     {
         return true;
     }
@@ -59,7 +59,7 @@ class {{ class }}
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
+    public function forceDelete(User $user, Dough $dough): bool
     {
         return true;
     }
