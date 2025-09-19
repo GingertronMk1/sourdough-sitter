@@ -6,23 +6,27 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Dough extends Model
+class Sitting extends Model
 {
-    /** @use HasFactory<\Database\Factories\DoughFactory> */
+    /** @use HasFactory<\Database\Factories\SittingFactory> */
     use HasFactory;
     use SoftDeletes;
     use HasUuids;
 
-    public function user(): BelongsTo
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    public function dough(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Dough::class);
     }
 
-    public function sittings(): HasMany
+    public function user(): BelongsTo
     {
-        return $this->hasMany(Sitting::class);
+        return $this->dough->user();
     }
 }
