@@ -13,7 +13,12 @@ class DoughController extends Controller
      */
     public function index()
     {
-        return view('livewire.dough.index', ['doughs' => Dough::all()]);
+        return view(
+            'livewire.dough.index',
+            [
+                'doughs' => Dough::all()->load('nextSitting')
+            ]
+        );
     }
 
     /**
@@ -37,7 +42,12 @@ class DoughController extends Controller
      */
     public function show(Dough $dough)
     {
-        //
+        return view(
+            'livewire.dough.show',
+            [
+                'dough' => $dough->load('sittings')
+            ]
+        );
     }
 
     /**

@@ -37,7 +37,13 @@ class DoughSittingController extends Controller
      */
     public function show(Dough $dough, Sitting $sitting)
     {
-        //
+        return view(
+            'livewire.dough.sitting.show',
+            [
+                'dough' => $dough,
+                'sitting' => $sitting,
+            ]
+        );
     }
 
     /**

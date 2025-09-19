@@ -32,6 +32,8 @@ class SittingFactory extends Factory
             'water_amount_unit' => 'ml',
             'start_date' => $startDate,
             'end_date' => $endDate,
+            'flour_type' => fake()->country(),
+            'additional_instructions' => fake()->boolean() ? fake()->text() : null,
             'confirmed' => fake()->boolean(),
         ];
     }
